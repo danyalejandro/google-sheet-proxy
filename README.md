@@ -37,6 +37,27 @@ We found that the best way to teach this topic is to let students prepare their 
 
 The "example" folder contains a simple JavaScript example (~10 lines of code) you can use to test your proxy against the spreadsheet in the usage example. It uses the jQuery library. Make sure the spreadsheet's row headers contain no spaces as they will be turned into javascript variables automatically (e.g. "First name" doesn't work, use "First_name" instead).
 
+The relevant code portion is placed here for convenience:
+```javascript
+<table id="myTable" border="1"></table>
+
+<script>
+	function processData(myData) {
+		var line, rowCount = myData.length;
+		
+		for (var i = 0 ; i < rowCount ; i++) {
+			line = "<tr><td>" + myData[i].name + "</td><td>" + myData[i].age + "</td></td>\n";
+			$("#myTable").append(line);
+		}
+	}
+
+	$(document).ready(function() {
+		$.getJSON("http://yourwebserverhere.com/proxy.php?key=<YOUR_KEY_HERE>&sheet=<YOUR_SHEET_NAME>", processData);
+	});
+</script>
+```
+
+
 # Security disclaimer
 
 This script is not meant to be used in application development, but only to fascilitate experimentation in an academic environment. The proxy.php file should ideally be removed from your web server after it fulfills its purpose (e.g. after the course ends), or at least moved to a different folder so that people cannot abuse it easily.
