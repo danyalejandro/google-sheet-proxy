@@ -42,18 +42,18 @@ The relevant code portion is placed here for convenience:
 <table id="myTable" border="1"></table>
 
 <script>
-	function processData(myData) {
-		var line, rowCount = myData.length;
-		
-		for (var i = 0 ; i < rowCount ; i++) {
-			line = "<tr><td>" + myData[i].name + "</td><td>" + myData[i].age + "</td></td>\n";
-			$("#myTable").append(line);
-		}
-	}
+  function processData(myData) {
+    var line, rowCount = myData.length;
+    
+    for (var i = 0 ; i < rowCount ; i++) {
+      line = "<tr><td>" + myData[i].name + "</td><td>" + myData[i].age + "</td></td>\n";
+      $("#myTable").append(line);
+    }
+  }
 
-	$(document).ready(function() {
-		$.getJSON("http://yourwebserverhere.com/proxy.php?key=<YOUR_KEY_HERE>&sheet=<YOUR_SHEET_NAME>", processData);
-	});
+  $(document).ready(function() {
+    $.getJSON("http://yourwebserverhere.com/proxy.php?key=<YOUR_KEY_HERE>&sheet=<YOUR_SHEET_NAME>", processData);
+  });
 </script>
 ```
 
