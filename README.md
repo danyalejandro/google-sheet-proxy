@@ -15,18 +15,26 @@ We found that the best way to teach this topic is to let students prepare their 
 
 # Usage
 
-1. The teacher places this script in a web server.
+1. The teacher places the file **proxy.php** in a web server.
 2. The student creates a Google Spreadsheet with their data, where the **first row contains the column headers** and the rest of the rows contain the data, for example:
 
-![Example of google spreadsheet data with 4 rows and 3 columns](r1.png)
+   ![Example of google spreadsheet data with 4 rows and 3 columns](readme/r1.png)
 
-3. The student shares the spreadsheet (Menu *"File" - "Share.." - "Get Shareable link"*) and obtains an URL for the spreadsheet, in the following form (notice the portion in bold):
+3. The student shares the spreadsheet (Menu *"File" - "Share.." - "Get Shareable link"*) and obtains an URL for the spreadsheet, in the following form:
 
-https://docs.google.com/spreadsheets/d/**151DckEKby3TAByEgeQtoBwSW6GszhvQJ4qatNpaxh4U**/edit?usp=sharing
+   docs.google.com/spreadsheets/d/**<LONG_CODE_HERE>**/edit?usp=sharing
 
-The bold portion is the **File Key** and the student should take note of it.
+   The special code in <LONG_CODE_HERE> is the **File Key** and the student should take note of it.
 4. Now the student can use AJAX to access the spreadsheet data using the proxy script with the following parameters:
 
-http://PATH-TO-YOUR-SCRIPT/proxy.php?key=**<YOUR_KEY>**&sheet=**<YOUR_SHEET>**
+   URL-TO-YOUR-SCRIPT/proxy.php?key=**<YOUR_KEY>**&sheet=**<YOUR_SHEET>**
 
-, where <YOUR_SHEET> is the name of the sheet inside the spreadsheet document (on the bottom of the spreadsheet, usually "Sheet1"). This allows to use different sheets as different "Database tables".
+   , where <YOUR_SHEET> is the name of the sheet inside the spreadsheet document (on the bottom of the spreadsheet, usually "Sheet1"). This allows to use different sheets as different "Database tables".
+
+# Example with JavaScript
+
+The "example" folder contains a simple JavaScript example you can use to test your proxy. It uses the jQuery library to simplify code.
+
+# Security disclaimer
+
+This script is not meant to be used in application development, only to fascilitate experimentation in academic environment. The proxy.php file is meant to be removed from your web server after it fulfills its purpose (e.g. after course end), or at least moved to a different folder so that people cannot abuse it.
