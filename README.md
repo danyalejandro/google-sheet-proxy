@@ -22,9 +22,9 @@ We found that the best way to teach this topic is to let students prepare their 
 
 3. The student shares the Google Spreadsheet (Menu *"File" - "Share.." - "Get Shareable link"*) and obtains an URL for it, which follows the syntax:
 
-   ```docs.google.com/spreadsheets/d/<LONG_CODE_HERE>/edit?usp=sharing```
+   ```docs.google.com/spreadsheets/d/<YOUR_KEY>/edit?usp=sharing```
 
-   The special code in <LONG_CODE_HERE> is the **File Key** and the student should take note of it.
+   The special code in <YOUR_KEY> is the **File Key** and the student should take note of it.
 4. Now the student can use AJAX to access the spreadsheet data using the proxy with the following parameters:
 
    ```URL_TO_PROXY/proxy.php?key=<YOUR_KEY>&sheet=<YOUR_SHEET>```
