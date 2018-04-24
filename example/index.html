@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+	<table id="myTable" border="1"></table>
+
+	<script>
+		function processData(myData) {
+			var line, rowCount = myData.length;
+			
+			for (var i = 0 ; i < rowCount ; i++) {
+				line = "<tr><td>" + myData[i].name + "</td><td>" + myData[i].age + "</td></td>\n";
+				$("#myTable").append(line);
+			}
+		}
+
+		// use the jQuery library to grab the data from our spreadsheet API and call processData(myData)
+		// Make the url point to your web server
+		$(document).ready(function() {
+			$.getJSON("http://yourwebserverhere.com/proxy.php?key=<YOUR_KEY_HERE>&sheet=<YOUR_SHEET_NAME>", processData);
+		});
+	</script>
+</body>
+</html>
