@@ -22,12 +22,12 @@ We found that the best way to teach this topic is to let students prepare their 
 
 3. The student shares the Google Spreadsheet (Menu *"File" - "Share.." - "Get Shareable link"*) and obtains an URL for it, which follows the syntax:
 
-   _docs.google.com/spreadsheets/d/**<LONG_CODE_HERE>**/edit?usp=sharing_
+   ```docs.google.com/spreadsheets/d/<LONG_CODE_HERE>/edit?usp=sharing```
 
    The special code in <LONG_CODE_HERE> is the **File Key** and the student should take note of it.
 4. Now the student can use AJAX to access the spreadsheet data using the proxy with the following parameters:
 
-   URL_TO_YOUR_SCRIPT/proxy.php?key=**<YOUR_KEY>**&sheet=**<YOUR_SHEET>**
+   ```URL_TO_PROXY/proxy.php?key=<YOUR_KEY>&sheet=<YOUR_SHEET>```
 
    , where <YOUR_SHEET> is the name of the sheet inside the spreadsheet document (on the bottom of the spreadsheet, usually _"Sheet1"_). This allows to use different sheets as different "Database tables". Following the example above, the proxy would return the following JSON object (with the proper Access-Control-Allow-Origin header):
 
@@ -52,7 +52,7 @@ The relevant code portion is placed here for convenience:
   }
 
   $(document).ready(function() {
-    $.getJSON("http://yourwebserverhere.com/proxy.php?key=<YOUR_KEY_HERE>&sheet=<YOUR_SHEET_NAME>", processData);
+    $.getJSON("http://YOURWEBSERVER.com/proxy.php?key=<YOUR_KEY_HERE>&sheet=<YOUR_SHEET_NAME>", processData);
   });
 </script>
 ```
